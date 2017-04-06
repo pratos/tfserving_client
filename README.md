@@ -22,6 +22,9 @@ require port to be manually exposed from their consoles/dashboards. Below are th
 
 - Google Compute Engine 
     ![google-compute](https://raw.githubusercontent.com/pratos/tfserving_client/master/images/google_cloud.png)
+    
+- Microsoft Azure Instances: Add the relevant security rule (here for `port:9000`)
+    ![azure-instance](https://raw.githubusercontent.com/pratos/tfserving_client/master/images/azure_firewall1.png)
 
 3. Running the actual client on your local system.
     * `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=inception-export &> inception_log &`
