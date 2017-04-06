@@ -14,7 +14,7 @@ __How to run this (_Note: This runs only locally on Google Compute Engine, still
 - `docker pull quay.io/pratos/baseinception`
 - We need to make sure that the tensorflow server is started. Follow the commands below:
     * `/work/serving/bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server`
-    * `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server –port=9000 –model_name=inception –model_base_path=inception-export &> inception_log &`
+    * `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=inception-export &> inception_log &`
 - Clone the repository.
 - `$ cd tfserving_client`
 - Create a new environment: `conda env create -f tfserving_client.yml`
