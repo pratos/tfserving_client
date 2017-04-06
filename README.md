@@ -8,21 +8,35 @@ Another solution: [sebastian-schlecht/tensorflow-serving-python](https://github.
 
 ***
 
-__How to run this (_Note: This runs only locally on Google Compute Engine, still working on remote_)__
+__How to run this__
+
+1. To run inside the Docker image and TensorFlow Serving model in the VM
 - Create a VM (_any cloud provider_)
 - Install Docker(_add user to sudo docker group_) and necessary python version (Here it is 3.5x)
 - `docker pull quay.io/pratos/baseinception`
 - We need to make sure that the tensorflow server is started. Follow the commands below:
     * `/work/serving/bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server`
+<<<<<<< HEAD
+    * `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server –port=9000 –model_name=inception –model_base_path=inception-export &> inception_log &`
+
+2. I've had experiences with DigitalOcean, Azure and Google Cloud. With the exception of DigitalOcean, the rest 
+require port to be manually exposed from their consoles/dashboards. Below are the images how to do it:
+
+- Google Compute Engine 
+    ![google-compute](./images/google-cloud)
+
+3. Running the actual client on your local system.
+=======
     * `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=inception-export &> inception_log &`
+>>>>>>> a07c6c81144a6db56abf959ecc68269467539cd0
 - Clone the repository.
 - `$ cd tfserving_client`
 - Create a new environment: `conda env create -f tfserving_client.yml`
 - `$ cd python_predict_client`
-- `python predict_client.py --server localhost:9000 --image ./dog-1210559_960_720.jpg` (You can add any sample image here)
+- `python predict_client.py --server <external-ip>:9000 --image ../images/dog-lab.jpg` (You can add any sample image here)
 - You should get the inference in the following format:
 ```
-The time required to do inference is 1.60
+The time required to do inference is 6.54
 outputs {
   key: "classes"
   value {

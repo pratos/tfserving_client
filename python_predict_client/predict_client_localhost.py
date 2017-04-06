@@ -13,7 +13,7 @@ import tensorflow as tf
 import predict_pb2
 import prediction_service_pb2
 
-tf.app.flags.DEFINE_string('server', '104.197.123.248:9000',
+tf.app.flags.DEFINE_string('server', 'localhost:9000',
                            'PredictionService host:port')
 tf.app.flags.DEFINE_string('image', '', 'path to image in JPEG format')
 FLAGS = tf.app.flags.FLAGS
