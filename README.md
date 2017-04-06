@@ -1,13 +1,14 @@
 # tfserving_client
-### Python gRPC Client to access remote gRPC TensorFlow Server
-
+__Python gRPC Client to access remote gRPC TensorFlow Server__
 Protocol Buffer files borrowed from [tobegit3hub/deep_recommend_system](https://github.com/tobegit3hub/deep_recommend_system/tree/master/python_predict_client)
 
 While creating a remote gRPC Client, came across [this issue](https://github.com/tensorflow/serving/issues/237) which didn't have a pure pythonic solution, instead going about through _Bazel_ compilation (Like the one described in TensorFlow Serving inference webpage).
 
 Another solution: [sebastian-schlecht/tensorflow-serving-python](https://github.com/sebastian-schlecht/tensorflow-serving-python)
 
-### How to run this (_Note: This runs only locally on Google Compute Engine, still working on remote_):
+***
+
+__How to run this (_Note: This runs only locally on Google Compute Engine, still working on remote_)__
 - Create a VM (_any cloud provider_)
 - Install Docker(_add user to sudo docker group_) and necessary python version (Here it is 3.5x)
 - `docker pull quay.io/pratos/baseinception`
