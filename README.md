@@ -16,6 +16,7 @@ __How to run this__
     - `docker pull quay.io/pratos/baseinception`
     - We need to make sure that the tensorflow server is started. Follow the commands below:
         * `/work/serving/bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server`
+    - - `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=inception-export &> inception_log &`
 
 2. I've had experiences with DigitalOcean, Azure and Google Cloud. With the exception of DigitalOcean, the rest 
 require port to be manually exposed from their consoles/dashboards. Below are the images how to do it:
@@ -27,7 +28,6 @@ require port to be manually exposed from their consoles/dashboards. Below are th
     ![azure-instance](https://raw.githubusercontent.com/pratos/tfserving_client/master/images/azure_firewall1.png)
 
 3. Running the actual client on your local system.
-    - `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=inception-export &> inception_log &`
     - Clone the repository.
     - `$ cd tfserving_client`
     - Create a new environment: `conda env create -f tfserving_client.yml`
