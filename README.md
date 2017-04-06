@@ -11,29 +11,29 @@ Another solution: [sebastian-schlecht/tensorflow-serving-python](https://github.
 __How to run this__
 
 1. To run inside the Docker image and TensorFlow Serving model in the VM
-- Create a VM (_any cloud provider_)
-- Install Docker(_add user to sudo docker group_) and necessary python version (Here it is 3.5x)
-- `docker pull quay.io/pratos/baseinception`
-- We need to make sure that the tensorflow server is started. Follow the commands below:
-    * `/work/serving/bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server`
+    - Create a VM (_any cloud provider_)
+    - Install Docker(_add user to sudo docker group_) and necessary python version (Here it is 3.5x)
+    - `docker pull quay.io/pratos/baseinception`
+    - We need to make sure that the tensorflow server is started. Follow the commands below:
+        * `/work/serving/bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server`
 
 2. I've had experiences with DigitalOcean, Azure and Google Cloud. With the exception of DigitalOcean, the rest 
 require port to be manually exposed from their consoles/dashboards. Below are the images how to do it:
 
-- Google Compute Engine 
+    - Google Compute Engine 
     ![google-compute](https://raw.githubusercontent.com/pratos/tfserving_client/master/images/google_cloud.png)
     
-- Microsoft Azure Instances: Add the relevant security rule (here for `port:9000`)
+    - Microsoft Azure Instances: Add the relevant security rule (here for `port:9000`)
     ![azure-instance](https://raw.githubusercontent.com/pratos/tfserving_client/master/images/azure_firewall1.png)
 
 3. Running the actual client on your local system.
-    * `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=inception-export &> inception_log &`
-- Clone the repository.
-- `$ cd tfserving_client`
-- Create a new environment: `conda env create -f tfserving_client.yml`
-- `$ cd python_predict_client`
-- `python predict_client.py --server <external-ip>:9000 --image ../images/dog-lab.jpg` (You can add any sample image here)
-- You should get the inference in the following format:
+    - `bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=inception --model_base_path=inception-export &> inception_log &`
+    - Clone the repository.
+    - `$ cd tfserving_client`
+    - Create a new environment: `conda env create -f tfserving_client.yml`
+    - `$ cd python_predict_client`
+    - `python predict_client.py --server <external-ip>:9000 --image ../images/dog-lab.jpg` (You can add any sample image here)
+    - You should get the inference in the following format:
 ```
 The time required to do inference is 6.54
 outputs {
